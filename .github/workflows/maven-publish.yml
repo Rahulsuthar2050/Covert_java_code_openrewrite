@@ -36,4 +36,5 @@ jobs:
       with:
           commit_message: "chore: auto-migrate code to Java 17 syntax"
           branch: ${{ github.head_ref }} # Pushes back to the branch that triggered it
+          repository_token: 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
    
