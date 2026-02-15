@@ -13,7 +13,7 @@ jobs:
 
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
 
     steps:
@@ -27,12 +27,12 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Maven
+      working-directory: ./
       run: |
              mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-migrate-java:RELEASE -Drewrite.activeRecipes=org.openrewrite.java.migrate.UpgradeToJava17
 
     - name: Commit Modernized Code
-      uses: stefanzweifel/git-auto-commit-action@v5
+      uses: stefanzweifel/git-auto-commit-action@v7
       with:
-          commit_message: "chore: auto-migrate code to Java 17 syntax"
-          branch: ${{ github.head_ref }} # Pushes back to the branch that triggered it
+        commit_message: Apply php-cs-fixer changes
    
