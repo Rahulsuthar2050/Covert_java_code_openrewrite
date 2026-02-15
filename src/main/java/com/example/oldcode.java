@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import org.junit.Assert; 
 import org.junit.Test;
 
-public class OldCode {
+public class oldcode {
 
     @Test
     public void testOldSyntax() {
